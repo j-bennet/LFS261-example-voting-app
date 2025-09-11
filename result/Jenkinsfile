@@ -51,8 +51,8 @@ pipeline {
                         // ./result is the path to the Dockerfile that Jenkins will find from the Github repo
                         def resultImage = docker.build("jbennet/result:v${env.BUILD_ID}", "./result")
                         resultImage.push()
-                        voteImage.push("${env.BRANCH_NAME}")
-                        voteImage.push("latest")
+                        resultImage.push("${env.BRANCH_NAME}")
+                        resultImage.push("latest")
                     }
                 }
             }
