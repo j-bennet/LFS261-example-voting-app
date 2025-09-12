@@ -31,7 +31,7 @@ pipeline {
                 changeset '**/worker/**'
             }
             steps {
-                echo 'Running Unit Tets on worker app.'
+                echo 'Running Unit Tests on worker app.'
                 dir(path: 'worker') {
                     sh 'mvn clean test'
                 }
@@ -176,7 +176,7 @@ pipeline {
             }
             steps {
                 echo 'Running Integration Tests on vote app'
-                dir('vote') {
+                dir(path: 'vote') {
                     sh 'sh integration_test.sh'
                 }
             }
