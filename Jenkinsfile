@@ -227,12 +227,10 @@ pipeline {
         stage("Quality Gate") {
             steps {
                 echo 'Running Quality Gate..'
-                withSonarQubeEnv('sonar-instavote') {
-                    timeout(time: 3, unit: 'MINUTES') {
-                        // Parameter indicates whether to set pipeline to UNSTABLE if Quality Gate fails
-                        // true = set pipeline to UNSTABLE, false = don't
-                        waitForQualityGate abortPipeline: true
-                    }
+                timeout(time: 3, unit: 'MINUTES') {
+                    // Parameter indicates whether to set pipeline to UNSTABLE if Quality Gate fails
+                    // true = set pipeline to UNSTABLE, false = don't
+                    waitForQualityGate abortPipeline: true
                 }
             }
         }
