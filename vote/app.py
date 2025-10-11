@@ -1,13 +1,14 @@
-from flask import Flask, render_template, request, make_response, g
-from redis import Redis
-import os
-import socket
-import random
 import json
 import logging
+import os
+import random
+import socket
 
-option_a = os.getenv('OPTION_A', "Chocolate")
-option_b = os.getenv('OPTION_B', "Vanilla")
+from flask import Flask, g, make_response, render_template, request
+from redis import Redis
+
+option_a = os.getenv("OPTION_A", "Cats")
+option_b = os.getenv("OPTION_B", "Dogs")
 hostname = socket.gethostname()
 version = 'v1'
 
